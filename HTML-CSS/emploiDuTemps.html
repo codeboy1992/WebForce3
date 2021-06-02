@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ma première page web</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./emploiDuTemps.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="#" class="nav-logo">Unlocktoncomputer</a>
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+          <li class="nav-item"><a href="emploiDuTemps.html" class="nav-link">Emploi du temps</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="emploiDuTemps">
+      <table class="center-table">
+        <caption>Mon emploi du temps</caption>
+
+        <thead>
+          <tr>
+            <th class="voidCell"></th>
+            <th>Lundi</th>
+            <th>Mardi</th>
+            <th>Mercredi</th>
+            <th>Jeudi</th>
+            <th>Vendredi</th>
+            <th>Samedi</th>
+            <th>Dimanche</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>8h - 9h</td>
+            <td colspan="5">Petit-déjeuner</td>
+            <td rowspan="10" colspan="2">Bronzette</td>
+          </tr>
+          <tr>
+            <td>9h - 10h</td>
+            <td rowspan="3" colspan="4">Formation HTML/CSS WebForce3</td>
+            <td>Auto-Formation sur les micro-services avec NodeJS</td>
+          </tr>
+          <tr>
+            <td>10h - 11h</td>
+            <td>Entretien technique MindFlow.</td>
+          </tr>
+          <tr>
+            <td>11h - 12h</td>
+            <td>Développement Portefolio</td>
+          </tr>
+          <tr>
+            <td>12h - 13h</td>
+            <td colspan="5">Déjeuner</td>
+          </tr>
+          <tr>
+            <td>13h - 14h</td>
+            <td rowspan="4" colspan="4">Formation HTML/CSS WebForce3</td>
+            <td rowspan="5">Développement Portefolio</td>
+          </tr>
+          <tr>
+            <td>14h - 15h</td>
+          </tr>
+          <tr>
+            <td>15h - 16h</td>
+          </tr>
+          <tr>
+            <td>16h - 17h</td>
+          </tr>
+          <tr>
+            <td>18h - 19h</td>
+            <td colspan="4">Développement Portefolio</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

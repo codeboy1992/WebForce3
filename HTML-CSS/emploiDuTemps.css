@@ -1,0 +1,17 @@
+.center-table {
+  margin: 20px auto;
+  caption-side: bottom;
+}
+
+th {
+  border: 1px black solid;
+  font-weight: bold;
+}
+
+td {
+  border: 1px black solid;
+}
+
+.voidCell {
+  border: 0;
+}

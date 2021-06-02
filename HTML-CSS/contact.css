@@ -1,0 +1,23 @@
+.margin-top-contact {
+  margin-top: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.input-container label {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.input-container input, textarea{
+  border-radius: 5px;
+  min-height: 20px;
+}
+
+.btn {
+  
+}
