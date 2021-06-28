@@ -59,6 +59,8 @@ p q {
   cursor: pointer;
 }
 
-video {
-  width: 800px;
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

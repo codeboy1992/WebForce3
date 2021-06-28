@@ -1,0 +1,50 @@
+<div id="projectRender" class="container">
+  <form>
+    <div class="mb-3">
+      <label 
+        for="project-name" 
+        class="form-label">
+        Nom du nouveau projet :
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        id="project-name"
+        name="project-name"
+        [(ngModel)]="newProject.title" />
+    </div>
+
+    <div class="mb-3">
+      <label 
+        for="project-description"
+        class="form-label">
+        Description du nouveau projet :
+      </label>
+      <textarea 
+        id="project-description" 
+        class="form-control"
+        rows="10"
+        cols="30"
+        name="project-description"
+        [(ngModel)]="newProject.description"></textarea>
+    </div>
+  </form>
+
+  <div class="row mt-5 baloo-text">
+    <div class="card mx-auto my-3">
+      <img 
+        class="card-img-top" 
+        [alt]="newProject.image.alt" 
+        [src]="newProject.image.src" />
+
+      <div class="card-body">
+        <h3 class="card-title text-center">
+          {{ newProject.title }}
+        </h3>
+        <p class="card-text text-center">
+          {{ newProject.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

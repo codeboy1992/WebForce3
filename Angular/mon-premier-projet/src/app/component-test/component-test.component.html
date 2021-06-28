@@ -1,0 +1,8 @@
+<h1>{{ titre }}</h1>
+
+<button class="btn btn-success" [disabled]="!isAuth">Property Binding</button>
+
+<button class="btn btn-success" (click)="onConnect()">Log In</button>
+
+<input type="text" class="form-control" [(ngModel)]="text" />
+<p>{{ text }}</p>
