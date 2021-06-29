@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-project-render',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-project-render.component.scss']
 })
 export class NewProjectRenderComponent implements OnInit {
+
+  @Input() title: string = ""
+  @Input() description: string = ""
+
+  isProjectRendered: boolean = false
 
   newProject = {
     title: "",
@@ -16,9 +21,17 @@ export class NewProjectRenderComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit(): void {
+    this.newProject.title = this.title
+    this.newProject.description = this.description
+  }
+
+  newProjectRender(): void {
+    this.isProjectRendered = true
   }
 
 }
