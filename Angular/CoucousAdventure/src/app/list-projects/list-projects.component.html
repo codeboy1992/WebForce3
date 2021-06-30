@@ -11,7 +11,7 @@
             {{ project.title }}
           </h3>
           <p class="card-text text-center">
-            {{ project.lastUpdate | date: 'short' | lowercase }}
+            <button type="button" (click)="onClickProject(project.id)">Voir le projet</button>
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@ export class ProjectsService {
   
   projects = [
     {
+      id: 0,
       title: "Coucou's Adventure",
       description: "Les aventures du poussin Coucou",
       image: {
@@ -11,6 +12,7 @@ export class ProjectsService {
       lastUpdate: new Date()
     },
     {
+      id: 1,
       title: "Projet 2",
       description: "Couscous party",
       image: {

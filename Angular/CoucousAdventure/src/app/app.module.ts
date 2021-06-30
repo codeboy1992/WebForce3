@@ -8,12 +8,19 @@ import { ListProjectsComponent } from './list-projects/list-projects.component';
 import { NewProjectRenderComponent } from './new-project-render/new-project-render.component';
 
 import { ProjectsService } from './services/projects.service';
+import { AuthService } from './services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ProjectVueComponent } from './project-vue/project-vue.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { AuthGuard } from './services/authGuard.service';
 
 const appRoutes: Routes = [
-  { path: 'projects', component: ListProjectsComponent },
-  { path: '', component: HomeComponent }
+  { path: 'projects', canActivate: [AuthGuard], component: ListProjectsComponent },
+  { path: 'projects/:id', canActivate: [AuthGuard], component: ProjectVueComponent},
+  { path: '', component: HomeComponent },
+  { path: 'not-found', component: FourOhFourComponent },
+  { path: '**', redirectTo: 'not-found' }
 ]
 
 @NgModule({
@@ -22,7 +29,9 @@ const appRoutes: Routes = [
     ListProjectsComponent,
     NewProjectRenderComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    ProjectVueComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +39,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    ProjectsService
+    ProjectsService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
