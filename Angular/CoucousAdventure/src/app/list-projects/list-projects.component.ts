@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from '../services/projects.service';
 
 @Component({
   selector: 'app-list-projects',
@@ -7,58 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListProjectsComponent implements OnInit {
 
-  projects = [
-    {
-      title: "Coucou's Adventure",
-      description: "Les aventures du poussin Coucou",
-      image: {
-        src: "https://images.unsplash.com/photo-1595707012809-0fdf633d5dca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        alt: "Poussin tout mignon"
-      }
-    },
-    {
-      title: "Projet 2",
-      description: "Couscous party",
-      image: {
-        src: "https://images.unsplash.com/photo-1595707012809-0fdf633d5dca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        alt: "Poussin tout mignon"
-      }
-    },
-    {
-      title: "Projet 3",
-      description: "Couscous party",
-      image: {
-        src: "https://images.unsplash.com/photo-1595707012809-0fdf633d5dca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        alt: "Poussin tout mignon"
-      }
-    },
-    {
-      title: "Projet 4",
-      description: "Couscous party",
-      image: {
-        src: "https://images.unsplash.com/photo-1595707012809-0fdf633d5dca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        alt: "Poussin tout mignon"
-      }
-    },
-    {
-      title: "Projet 5",
-      description: "Couscous party",
-      image: {
-        src: "https://images.unsplash.com/photo-1595707012809-0fdf633d5dca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        alt: "Poussin tout mignon"
-      }
-    },
-    {
-      title: "Projet 6",
-      description: "Couscous party",
-      image: {
-        src: "https://images.unsplash.com/photo-1595707012809-0fdf633d5dca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hpY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        alt: "Poussin tout mignon"
-      }
-    }
-  ]
+  projects: any[] = this.projectsService.projects;
 
-  constructor() { }
+  constructor(private projectsService: ProjectsService) {}
 
   ngOnInit(): void {
   }

@@ -10,6 +10,8 @@ export class NewProjectRenderComponent implements OnInit {
   @Input() title: string = ""
   @Input() description: string = ""
 
+  redColor = "red"
+
   isProjectRendered: boolean = false
 
   newProject = {

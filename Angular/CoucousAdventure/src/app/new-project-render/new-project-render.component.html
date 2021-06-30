@@ -30,7 +30,9 @@
     </div>
 
     <div *ngIf="!isProjectRendered" class="d-grid gap-2 col-6 col-md-3 mx-auto">
-      <button type="button" class="btn btn-primary" (click)="newProjectRender()">Afficher le rendu</button>
+      <button type="button" 
+        [ngClass]="{'btn': true, 'btn-primary': !isProjectRendered, 'btn-danger': isProjectRendered}" 
+        (click)="newProjectRender()">Afficher le rendu</button>
     </div>
   </form>
 
