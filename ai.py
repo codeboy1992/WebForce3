@@ -60,32 +60,29 @@ class Dqn():
         return action.data[0,0]
         
     
-    def learn(self, batch_state , batch_next_state , batch_reward , batch_action):
-        outputs = self.model(batch_state).gather(1,batch_action.unsqueeze(1)).squeeze(1)
-        next_outputs=self.model(batch_next_state).detach().max(1)[0]
-        targets= batch_reward + self.gamma * next_outputs  # equation de bellman
-        td_loss=F.smooth_l1_loss(outputs,targets)
+    def learn(self, batch_state, batch_next_state, batch_reward, batch_action):
+        outputs = self.model(batch_state).gather(1, batch_action.unsqueeze(1)).squeeze(1)
+        next_outputs = self.model(batch_next_state).detach().max(1)[0]
+        target = self.gamma*next_outputs + batch_reward
+        td_loss = F.smooth_l1_loss(outputs, target)
         self.optimizer.zero_grad()
-        td_loss.backward()
+        td_loss.backward(retain_graph = True)
         self.optimizer.step()
-        
-        
-    def update(self,reward,new_signal):
-        new_state=torch.Tensor(new_signal).float().unsqueeze(0)
-        self.memory.push((self.last_state,new_state,torch.LongTensor([int(self.last_action)]),torch.Tensor([self.last_reward])))
+
+    def update(self, reward, new_signal):
+        new_state = torch.Tensor(new_signal).float().unsqueeze(0)
+        self.memory.push((self.last_state, new_state, torch.LongTensor([int(self.last_action)]), torch.Tensor([self.last_reward])))
         action = self.select_action(new_state)
-        if len(self.memory.memory)>100:
-            batch_state, batch_next_state, batch_reward, batch_action=self.memory.sample(100)
+        if len(self.memory.memory) > 100:
+            batch_state, batch_next_state, batch_action, batch_reward = self.memory.sample(100)
             self.learn(batch_state, batch_next_state, batch_reward, batch_action)
-        self.last_action=action
-        self.last_state=new_state
-        self.last_reward=reward
+        self.last_action = action
+        self.last_state = new_state
+        self.last_reward = reward
         self.reward_window.append(reward)
-        if len(self.reward_window)>1000:
+        if len(self.reward_window) > 1000:
             del self.reward_window[0]
-        
-        return action 
-    
+        return action
     
     def score(self):
        return sum(self.reward_window) / (len(self.reward_window) +1.)
